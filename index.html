@@ -147,7 +147,7 @@
     line-height: 1.08; letter-spacing: -0.03em;
     margin-bottom: 44px; font-weight: 300; color: var(--white);
   }
-  .hero-title.en { font-family: var(--font-en); font-weight: 600; letter-spacing: -0.01em; }
+  .hero-title.en { font-family: var(--font-en); font-weight: 300; letter-spacing: -0.01em; }
   .hero-sub {
     font-size: 15px; color: var(--mid); max-width: 640px;
     line-height: 1.8; margin-bottom: 52px;
@@ -276,107 +276,6 @@
   .project-row-year { font-family: var(--font-en); font-size: 12px; color: #2a2a2a; text-align: right; transition: color var(--tr); }
 
   /* ══════════════════
-     SKETCHES — 3:4, 3-col masonry
-  ══════════════════ */
-  .sketches-header {
-    padding: 160px 48px 72px;
-    border-bottom: 1px solid var(--border);
-    display: flex; align-items: flex-end; justify-content: space-between;
-  }
-  .sketches-title {
-    font-size: clamp(40px, 6vw, 88px);
-    font-weight: 300; letter-spacing: -0.025em;
-    line-height: 1.05; color: var(--white); word-break: keep-all;
-  }
-  .sketches-count {
-    font-family: var(--font-en);
-    font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
-    color: #2a2a2a; padding-bottom: 8px;
-  }
-  .sketches-filters {
-    padding: 24px 48px;
-    display: flex; gap: 8px; align-items: center;
-    border-bottom: 1px solid var(--border);
-    overflow-x: auto;
-  }
-  .filter-label {
-    font-family: var(--font-en);
-    font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase;
-    color: #333; margin-right: 8px; white-space: nowrap;
-  }
-  .filter-btn {
-    font-family: var(--font-en);
-    font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
-    color: #333; background: none;
-    border: 1px solid #1e1e1e; padding: 7px 16px;
-    cursor: pointer; white-space: nowrap;
-    transition: color var(--tr), border-color var(--tr), background var(--tr);
-  }
-  .filter-btn:hover { color: var(--white); border-color: #333; }
-  .filter-btn.active { color: var(--white); border-color: var(--blue); background: rgba(74,126,255,0.08); }
-
-  /* Masonry 3-col, each card forced 3:4 */
-  .sketches-grid {
-    padding: 3px 48px 0;
-    column-count: 3;
-    column-gap: 3px;
-  }
-  .sketch-item {
-    break-inside: avoid;
-    margin-bottom: 3px;
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
-    background: #0e0e0e;
-    /* 3:4 ratio via padding-top trick so column masonry respects it */
-    padding-top: calc(100% * 4 / 3);
-  }
-  .sketch-inner {
-    position: absolute;
-    inset: 0;
-  }
-  .sketch-placeholder {
-    position: absolute; inset: 0;
-    display: flex; align-items: center; justify-content: center;
-    font-family: var(--font-en);
-    font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase;
-    color: #1c1c1c;
-    transition: transform 0.6s cubic-bezier(0.4,0,0.2,1);
-  }
-  .sketch-item:hover .sketch-placeholder { transform: scale(1.05); }
-
-  .sketch-num {
-    position: absolute; bottom: 14px; left: 16px;
-    font-family: var(--font-en); font-size: 10px; letter-spacing: 0.08em;
-    color: #2a2a2a; z-index: 2; pointer-events: none;
-    transition: color var(--tr);
-  }
-  .sketch-overlay {
-    position: absolute; inset: 0; z-index: 3;
-    background: rgba(0,0,0,0.72);
-    display: flex; flex-direction: column; justify-content: flex-end;
-    padding: 22px 20px;
-    opacity: 0; transition: opacity 0.3s ease;
-  }
-  .sketch-item:hover .sketch-overlay { opacity: 1; }
-  .sketch-overlay-cat {
-    font-family: var(--font-en); font-size: 9px; letter-spacing: 0.18em;
-    text-transform: uppercase; color: var(--blue); margin-bottom: 5px;
-    white-space: nowrap;
-  }
-  .sketch-overlay-title { font-size: 14px; font-weight: 400; color: var(--white); word-break: keep-all; line-height: 1.4; }
-  .sketch-overlay-arrow {
-    position: absolute; top: 16px; right: 18px;
-    font-family: var(--font-en); font-size: 16px; color: var(--white); opacity: 0.5;
-  }
-  .sketch-item::after {
-    content: ''; position: absolute; inset: 0; z-index: 1;
-    background: radial-gradient(ellipse at 50% 80%, rgba(30,60,200,0.20) 0%, transparent 70%);
-    opacity: 0; transition: opacity 0.45s ease; pointer-events: none;
-  }
-  .sketch-item:hover::after { opacity: 1; }
-
-  /* ══════════════════
      PROJECT DETAIL
   ══════════════════ */
   .project-detail-hero {
@@ -488,16 +387,12 @@
   /* ══════════════════
      RESPONSIVE
   ══════════════════ */
-  @media (max-width: 1024px) {
-    .sketches-grid { column-count: 2; }
-  }
   @media (max-width: 768px) {
     nav { padding: 18px 24px; }
     .nav-links { gap: 16px; }
     .hero, .home-projects, .about-body, .project-index-header,
     .about-hero, .project-detail-body, .project-gallery,
-    .project-back, .project-nav-footer, footer,
-    .sketches-header, .sketches-filters, .sketches-grid { padding-left: 24px; padding-right: 24px; }
+    .project-back, .project-nav-footer, footer { padding-left: 24px; padding-right: 24px; }
     .featured-grid { grid-template-columns: 1fr; }
     .about-body { grid-template-columns: 1fr; gap: 48px; }
     .project-row { grid-template-columns: 40px 1fr; padding: 20px 24px; }
@@ -508,8 +403,6 @@
     .project-nav-footer { flex-direction: column; gap: 28px; align-items: flex-start; }
     footer { flex-direction: column; gap: 28px; align-items: flex-start; }
     .footer-links { text-align: left; }
-    .sketches-header { flex-direction: column; align-items: flex-start; gap: 20px; }
-    .sketches-grid { column-count: 1; }
   }
 </style>
 </head>
@@ -521,7 +414,6 @@
   <ul class="nav-links">
     <li><a id="nav-about"    onclick="navigate('about')"    data-i18n="nav_about"></a></li>
     <li><a id="nav-projects" onclick="navigate('projects')" data-i18n="nav_projects"></a></li>
-    <li><a id="nav-sketches" onclick="navigate('sketches')" data-i18n="nav_sketches"></a></li>
     <li>
       <div class="lang-toggle">
         <button class="lang-btn" id="btnKo" onclick="setLang('ko')">KO</button>
@@ -561,8 +453,7 @@
     </div>
     <div class="footer-links">
       <a href="mailto:eseyounge@gmail.com">eseyounge@gmail.com</a>
-      <a href="#" target="_blank">Instagram</a>
-      <a href="#" target="_blank">LinkedIn</a>
+      <a href="https://www.linkedin.com/in/seyoung-lee-11107ab3/" target="_blank">LinkedIn</a>
     </div>
   </footer>
 </div>
@@ -600,8 +491,7 @@
     </div>
     <div class="footer-links">
       <a href="mailto:eseyounge@gmail.com">eseyounge@gmail.com</a>
-      <a href="#" target="_blank">Instagram</a>
-      <a href="#" target="_blank">LinkedIn</a>
+      <a href="https://www.linkedin.com/in/seyoung-lee-11107ab3/" target="_blank">LinkedIn</a>
     </div>
   </footer>
 </div>
@@ -619,29 +509,7 @@
     </div>
     <div class="footer-links">
       <a href="mailto:eseyounge@gmail.com">eseyounge@gmail.com</a>
-      <a href="#" target="_blank">Instagram</a>
-      <a href="#" target="_blank">LinkedIn</a>
-    </div>
-  </footer>
-</div>
-
-<!-- ══════════ SKETCHES ══════════ -->
-<div id="page-sketches" class="page">
-  <div class="sketches-header">
-    <h1 class="sketches-title" id="sketchesTitle" data-i18n="sketches_title"></h1>
-    <div class="sketches-count" id="sketchesCount"></div>
-  </div>
-  <div class="sketches-filters" id="sketchFilters"></div>
-  <div class="sketches-grid" id="sketchesGrid"></div>
-  <footer>
-    <div>
-      <div class="footer-name" id="footer-name-sketches" data-i18n="footer_name"></div>
-      <div class="footer-copy" data-i18n="footer_copy"></div>
-    </div>
-    <div class="footer-links">
-      <a href="mailto:eseyounge@gmail.com">eseyounge@gmail.com</a>
-      <a href="#" target="_blank">Instagram</a>
-      <a href="#" target="_blank">LinkedIn</a>
+      <a href="https://www.linkedin.com/in/seyoung-lee-11107ab3/" target="_blank">LinkedIn</a>
     </div>
   </footer>
 </div>
@@ -751,72 +619,49 @@ const PROJECTS = [
   }
 ];
 
-/* DATA — SKETCHES */
-const SKETCHES = [
-  { id:0,  projectId:0, bg:'#111210' },
-  { id:1,  projectId:1, bg:'#0f1113' },
-  { id:2,  projectId:2, bg:'#121110' },
-  { id:3,  projectId:0, bg:'#0e1012' },
-  { id:4,  projectId:1, bg:'#111312' },
-  { id:5,  projectId:2, bg:'#101110' },
-  { id:6,  projectId:0, bg:'#121110' },
-  { id:7,  projectId:1, bg:'#0f1112' },
-  { id:8,  projectId:2, bg:'#111210' },
-  { id:9,  projectId:0, bg:'#0f1113' },
-  { id:10, projectId:1, bg:'#121112' },
-  { id:11, projectId:2, bg:'#111010' },
-  { id:12, projectId:0, bg:'#101112' },
-  { id:13, projectId:1, bg:'#111211' },
-  { id:14, projectId:2, bg:'#121110' },
-];
-
 /* I18N */
 const I18N = {
   ko: {
-    nav_about:'About', nav_projects:'Projects', nav_sketches:'Sketches',
-    hero_title:'사람의 움직임을 돕는\n도구를 디자인합니다.',
+    nav_about:'About', nav_projects:'Projects',
+    hero_title:'기술과 사람의 필요가\n만나는 곳을 디자인합니다.',
     hero_sub:'사람의 움직임을 돕는 것이 결국 그 사람의 가능성을 넓히는 일이라고 믿습니다.',
     hero_cta:'프로젝트 보기', hero_scroll:'Scroll',
     section_selected:'Selected Work',
     about_title:'이세영',
-    about_p1:'사람의 움직임을 돕는 것이 결국 그 사람의 가능성을 넓히는 일이라고 믿습니다.',
-    about_p2:'누군가의 절실한 필요에서 출발해 삶의 일부가 되는 도구를 만들고 싶습니다.',
-    about_p3:'',
+    about_p1:'이세영은 기술과 사람 사이의 간극을 좁히는 산업디자이너이자 어플리케이션 엔지니어입니다.',
+    about_p2:'RISD에서 산업디자인을 전공하고 미국 3D 프린팅 및 의료기기 산업에서 경험을 쌓았으며, MIT·브라운대와의 다학제적 협업과 다양한 고객사의 제품을 아이디어부터 실제 결과물로 만들어낸 경험을 통해 사용자 경험에 대한 깊은 이해를 바탕으로 개발을 이끌어왔습니다.',
+    about_p3:'기술을 시장과 연결하는 디지털 UX 및 마케팅 전략 경험을 더해, 일상에 자연스럽게 녹아들어 사람의 잠재력과 움직임을 확장하는 차세대 웨어러블과 로보틱스 디자인을 개척하고자 합니다.',
     meta_education:'Education',
     meta_edu_val:'Industrial Design | BFA\nRhode Island School of Design (RISD), Providence, RI\n2015 – 2022\n\nBiomedical Engineering Design and Innovation | 교차수강\nMassachusetts Institute of Technology (MIT), Cambridge, MA\n2022\n\nProduct Design and Development | 교차수강\nBrown University, Providence, RI\n2021',
     meta_experience:'Experience',
     meta_exp_val:'마케팅 어소시에이트\nVatech America — 2026 ~\n\n응용 엔지니어\nR&D Technologies — 2022–2025\n\n제품 개발 디자이너\nMi & Mi Medical Group — 2020–2021\n\n3D 모델링 인턴\nNetto Design Group — 2020',
     meta_contact:'Contact',
     projects_title:'프로젝트\n인덱스',
-    sketches_title:'스케치',
-    sketches_filter_all:'전체',
-    back_btn:'← 목록으로', back_from_sketch:'← 스케치로',
+    back_btn:'← 목록으로',
     footer_name:'이세영', footer_copy:'© 2025 Seyoung Lee',
     prev_project:'이전 프로젝트', next_project:'다음 프로젝트',
-    gallery_img:'Image', sketch_label:'Sketch'
+    gallery_img:'Image'
   },
   en: {
-    nav_about:'About', nav_projects:'Projects', nav_sketches:'Sketches',
-    hero_title:'Designing tools that\nhelp people move.',
+    nav_about:'About', nav_projects:'Projects',
+    hero_title:'Bridging the Gap Between\nTechnology and Human Need.',
     hero_sub:'I believe that helping people move is ultimately about expanding human possibility.',
     hero_cta:'View Projects', hero_scroll:'Scroll',
     section_selected:'Selected Work',
     about_title:'Seyoung Lee',
-    about_p1:'I believe that helping people move is ultimately about expanding human possibility.',
-    about_p2:'I want to build tools that start from genuine need and become part of how they live.',
-    about_p3:'',
+    about_p1:'Seyoung Lee is an Industrial Designer and Application Engineer dedicated to closing the gap between technology and human need.',
+    about_p2:'With a background spanning RISD, cross-disciplinary work with MIT and Brown University, and experience in the U.S. 3D printing and medical device industries, Seyoung brings products from early concepts to working reality through a deep understanding of user experience.',
+    about_p3:'Drawing on a parallel background in digital UX and marketing strategy, Seyoung now focuses on designing next-generation wearable devices and robotics that seamlessly integrate into everyday life to expand human potential.',
     meta_education:'Education',
     meta_edu_val:'Industrial Design | BFA\nRhode Island School of Design (RISD), Providence, RI\n2015 – 2022\n\nBiomedical Engineering Design and Innovation | Cross-registration\nMassachusetts Institute of Technology (MIT), Cambridge, MA\n2022\n\nProduct Design and Development | Cross-registration\nBrown University, Providence, RI\n2021',
     meta_experience:'Experience',
     meta_exp_val:'Associate, Marketing\nVatech America, Teaneck, NJ — 2026 ~\n\nApplication Engineer\nR&D Technologies, North Kingstown, RI — 2022–2025\n\nProduct Developer and Designer\nMi & Mi Medical Group GSA, South Korea — 2020–2021\n\n3D Modeling Intern\nNetto Design Group, South Korea — May–Sept 2020',
     meta_contact:'Contact',
     projects_title:'Project\nIndex',
-    sketches_title:'Sketches',
-    sketches_filter_all:'All',
-    back_btn:'← Back to Projects', back_from_sketch:'← Back to Sketches',
+    back_btn:'← Back to Projects',
     footer_name:'Seyoung Lee', footer_copy:'© 2025 Seyoung Lee',
     prev_project:'Previous Project', next_project:'Next Project',
-    gallery_img:'Image', sketch_label:'Sketch'
+    gallery_img:'Image'
   }
 };
 
@@ -824,7 +669,6 @@ const I18N = {
 let currentLang     = 'en';
 let currentProjectId = 0;
 let prevPage        = 'projects';
-let sketchFilter    = null;
 
 const isEn = () => currentLang === 'en';
 const t    = k  => (I18N[currentLang][k] || I18N.en[k] || '');
@@ -844,12 +688,11 @@ function applyTranslations() {
       .map(block => `<span class="meta-block">${block.replace(/\n/g,'<br>')}</span>`)
       .join('');
   });
-  ['heroTitle','aboutTitle','projectsTitle','sketchesTitle'].forEach(id => applyFontClass(document.getElementById(id)));
+  ['heroTitle','aboutTitle','projectsTitle'].forEach(id => applyFontClass(document.getElementById(id)));
   const hs = document.getElementById('heroSub');
   if (hs) hs.style.fontFamily = isEn() ? 'var(--font-en)' : 'var(--font-ko)';
-  ['footer-name-home','footer-name-about','footer-name-projects','footer-name-sketches'].forEach(id => applyFontClass(document.getElementById(id)));
+  ['footer-name-home','footer-name-about','footer-name-projects'].forEach(id => applyFontClass(document.getElementById(id)));
   renderFeatured();
-  updateSketchCount();
   setNavActive();
   /* about paragraphs font */
   ['about-p1','about-p2','about-p3'].forEach(id => {
@@ -866,7 +709,6 @@ function setLang(lang) {
   const aid = document.querySelector('.page.active')?.id;
   if (aid==='page-projects') renderProjectList();
   if (aid==='page-project')  renderProjectDetail(currentProjectId);
-  if (aid==='page-sketches') renderSketches();
 }
 
 /* ── NAVIGATE ── */
@@ -876,7 +718,6 @@ function navigate(page, data) {
   if      (page==='home')     id = 'page-home';
   else if (page==='about')    id = 'page-about';
   else if (page==='projects') { id='page-projects'; renderProjectList(); }
-  else if (page==='sketches') { id='page-sketches'; renderSketches(); }
   else if (page==='project')  {
     id='page-project';
     currentProjectId = (data && data.id !== undefined) ? data.id : data;
@@ -892,7 +733,6 @@ function setNavActive() {
   const aid = document.querySelector('.page.active')?.id || '';
   document.getElementById('nav-about').classList.toggle('nav-active',    aid==='page-about');
   document.getElementById('nav-projects').classList.toggle('nav-active', aid==='page-projects');
-  document.getElementById('nav-sketches').classList.toggle('nav-active', aid==='page-sketches');
 }
 
 /* ── HOME FEATURED: 2 projects, 16:9, 2-col ── */
@@ -926,49 +766,6 @@ function renderProjectList() {
   ).join('');
 }
 
-/* ── SKETCHES ── */
-function renderSketches() {
-  /* filters */
-  const filters = [{label: t('sketches_filter_all'), value: null},
-    ...PROJECTS.map(p => ({label: p.cat[currentLang], value: p.id}))];
-  document.getElementById('sketchFilters').innerHTML =
-    `<span class="filter-label">${isEn()?'Filter':'필터'}</span>` +
-    filters.map(f =>
-      `<button class="filter-btn${sketchFilter===f.value?' active':''}"
-         onclick="setSketchFilter(${f.value===null?'null':f.value})">${f.label}</button>`
-    ).join('');
-
-  /* items */
-  const list = sketchFilter===null ? SKETCHES : SKETCHES.filter(s=>s.projectId===sketchFilter);
-  document.getElementById('sketchesGrid').innerHTML = list.map((s,idx) => {
-    const p = PROJECTS[s.projectId];
-    return `<div class="sketch-item" style="background:${s.bg}"
-                 onclick="navigate('project',{id:${s.projectId},from:'sketches'})">
-      <div class="sketch-inner">
-        <div class="sketch-placeholder">${t('sketch_label')} ${pad(s.id+1)}</div>
-        <span class="sketch-num">${pad(idx+1)}</span>
-        <div class="sketch-overlay">
-          <span class="sketch-overlay-arrow">↗</span>
-          <div class="sketch-overlay-cat">${p.cat[currentLang]}</div>
-          <div class="sketch-overlay-title${isEn()?' en':''}">${p.title[currentLang]}</div>
-        </div>
-      </div>
-    </div>`;
-  }).join('');
-  updateSketchCount();
-}
-
-function setSketchFilter(val) {
-  sketchFilter = val;
-  renderSketches();
-}
-function updateSketchCount() {
-  const el = document.getElementById('sketchesCount');
-  if (!el) return;
-  const n = sketchFilter===null ? SKETCHES.length : SKETCHES.filter(s=>s.projectId===sketchFilter).length;
-  el.textContent = `${pad(n)} ${isEn()?'works':'점'}`;
-}
-
 /* ── PROJECT DETAIL ── */
 let imgCounter = 0;
 function renderProjectDetail(id) {
@@ -989,13 +786,8 @@ function renderProjectDetail(id) {
 
   /* back button */
   const bb = document.getElementById('detailBackBtn');
-  if (prevPage==='sketches') {
-    bb.textContent = t('back_from_sketch');
-    bb.onclick = () => navigate('sketches');
-  } else {
-    bb.textContent = t('back_btn');
-    bb.onclick = () => navigate('projects');
-  }
+  bb.textContent = t('back_btn');
+  bb.onclick = () => navigate('projects');
 
   /* desc */
   document.getElementById('detailDesc').innerHTML = p.desc[currentLang].map(txt=>
@@ -1053,11 +845,7 @@ function renderProjectDetail(id) {
   }
 
   const bb = document.getElementById('detailBackBtn');
-  if (prevPage==='sketches') {
-    bb.textContent = t('back_from_sketch'); bb.onclick = ()=>navigate('sketches');
-  } else {
-    bb.textContent = t('back_btn'); bb.onclick = ()=>navigate('projects');
-  }
+  bb.textContent = t('back_btn'); bb.onclick = ()=>navigate('projects');
 
   /* description + responsibilities */
   const resp = p.responsibilities[currentLang];
